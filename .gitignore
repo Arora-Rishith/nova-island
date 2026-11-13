@@ -1,0 +1,10 @@
+bin/
+obj/
+artifacts/
+node_modules/
+*.user
+*.pfx
+*.cer
+*.log
+.vs/
+/.opencode/

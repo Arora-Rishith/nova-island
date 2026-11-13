@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Services/ArtworkPalette.cs" Link="ArtworkPalette.cs" />
+    <Compile Include="../../Services/IslandBounds.cs" Link="IslandBounds.cs" />
+    <Compile Include="../../Services/LyricsParser.cs" Link="LyricsParser.cs" />
+    <Compile Include="../../Services/AgentActivityReader.cs" Link="AgentActivityReader.cs" />
+    <Compile Include="../../Services/FocusSession.cs" Link="FocusSession.cs" />
+  </ItemGroup>
+</Project>

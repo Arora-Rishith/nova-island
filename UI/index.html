@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Dynamic Island</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/island.css">
+  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="styles/desktop.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="wifi-icon" viewBox="0 0 24 24"><path d="M2 8a16 16 0 0 1 20 0M5 12a11 11 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="20" r="1"/></symbol>
+    <symbol id="bluetooth-icon" viewBox="0 0 24 24"><path d="m6 6 12 12-6 4V2l6 4L6 18"/></symbol>
+    <symbol id="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="volume-icon" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3Zm13-1a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="hotspot-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M7 7a7 7 0 0 0 0 10m10-10a7 7 0 0 1 0 10M4 4a11 11 0 0 0 0 16M20 4a11 11 0 0 1 0 16"/></symbol>
+    <symbol id="airplane-icon" viewBox="0 0 24 24"><path d="m12 3 2 7 7 4v2l-7-2v5l2 2H8l2-2v-5l-7 2v-2l7-4Z"/></symbol>
+    <symbol id="note-icon" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/></symbol>
+    <symbol id="play-icon" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="pause-icon" viewBox="0 0 24 24"><path d="M7 5h3v14H7Zm7 0h3v14h-3Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="previous-icon" viewBox="0 0 24 24"><path d="M6 5v14m12-14L9 12l9 7Z"/></symbol>
+    <symbol id="next-icon" viewBox="0 0 24 24"><path d="M18 5v14M6 5l9 7-9 7Z"/></symbol>
+    <symbol id="chevron-icon" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="mic-icon" viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3m-4 0h8"/></symbol>
+    <symbol id="clipboard-icon" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 4.5V3h6v1.5M8 10h8M8 14h6"/></symbol>
+    <symbol id="spark-icon" viewBox="0 0 24 24"><path d="m12 2 1.8 7.2L21 12l-7.2 1.8L12 21l-1.8-7.2L3 12l7.2-2.8Z"/></symbol>
+    <symbol id="files-icon" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h5l2 2h5a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></symbol>
+    <symbol id="calculator-icon" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></symbol>
+    <symbol id="settings-icon" viewBox="0 0 24 24"><path d="m12 3 1 2.2 2.4.6 2.1-1.1 1.8 1.8-1.1 2.1.6 2.4L21 12l-2.2 1-.6 2.4 1.1 2.1-1.8 1.8-2.1-1.1-2.4.6L12 21l-1-2.2-2.4-.6-2.1 1.1-1.8-1.8 1.1-2.1L5.2 13 3 12l2.2-1 .6-2.4L4.7 6.5l1.8-1.8 2.1 1.1 2.4-.6Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="refresh-icon" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.7-4L3 10m0-5v5h5M4 13a8 8 0 0 0 14.7 4L21 14m0 5v-5h-5"/></symbol>
+    <symbol id="cpu-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4M10 10h4v4h-4Z"/></symbol>
+    <symbol id="gpu-icon" viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 18v3m8-3v3M7 9h10v5H7zM2 9h2m16 0h2"/></symbol>
+    <symbol id="up-icon" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+    <symbol id="down-icon" viewBox="0 0 24 24"><path d="M12 4v16m6-6-6 6-6-6"/></symbol>
+    <symbol id="disk-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></symbol>
+    <symbol id="brain-icon" viewBox="0 0 24 24"><path d="M9.5 4.5A3.5 3.5 0 0 0 6 8v.5a3 3 0 0 0-1 5.7V15a3 3 0 0 0 4.5 2.6V20M14.5 4.5A3.5 3.5 0 0 1 18 8v.5a3 3 0 0 1 1 5.7V15a3 3 0 0 1-4.5 2.6V20M9.5 4.5V20M14.5 4.5V20M9.5 9h5M9.5 14h5"/></symbol>
+    <symbol id="terminal-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 9 3 3-3 3m5 0h5"/></symbol>
+    <symbol id="sun-weather-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="cloud-icon" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.5 4.25 4.25 0 0 0 7 18Z"/></symbol>
+    <symbol id="rain-icon" viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 6.5 4.25 4.25 0 0 0 7 15Zm1 3-1 2m5-2-1 2m5-2-1 2"/></symbol>
+    <symbol id="snow-icon" viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 5.5 4.25 4.25 0 0 0 7 14Zm2 4h.01m3 0h.01m3 0h.01"/></symbol>
+    <symbol id="storm-icon" viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 5.5 4.25 4.25 0 0 0 7 14Zm6-4-3 5h3l-2 4 5-6h-3Z"/></symbol>
+  </svg>
+  <main id="island" aria-label="Dynamic Island">
+    <button id="compact" class="compact" aria-label="Expand island">
+      <span class="art compact-art"><img class="album-art" alt="" hidden><svg class="icon art-placeholder"><use href="#note-icon"/></svg></span>
+      <span class="compact-copy"><strong id="compact-title">Nothing playing</strong><span id="compact-artist">Time and weather</span></span>
+      <span id="compact-activity" class="compact-activity" hidden></span>
+      <span class="compact-actions"><span class="voice-dot" id="compact-voice-dot"></span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>
+      <span class="compact-meta"><span id="compact-time">--:--</span><i></i><span class="compact-weather"><svg id="compact-weather-icon" class="icon"><use href="#cloud-icon"/></svg><span id="compact-temperature">--°</span></span></span>
+    </button>
+    <div id="expanded" class="expanded" hidden>
+      <header class="header">
+        <span id="page-title" class="page-heading">NOW PLAYING</span>
+        <span class="wave small" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <button id="voice-toggle" class="icon-button voice-button" title="Voice commands" aria-label="Toggle voice commands"><svg class="icon"><use href="#mic-icon"/></svg></button>
+      </header>
+      <div class="pages">
+        <section class="page media-page" id="page-0" aria-label="Music">
+          <article class="music-card">
+             <div class="music-track-row"><div class="art music-art"><img class="album-art" alt="Album artwork" hidden><svg class="icon art-placeholder"><use href="#note-icon"/></svg></div><div class="track-copy"><h2 id="track-title">Nothing playing</h2><p id="track-artist">Start music on your PC</p><p id="track-album" class="muted">Media player</p></div><span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+            <div class="lyric-row"><span id="current-lyric">Your music, at a glance.</span><button id="lyrics-toggle" class="text-button" aria-expanded="false" aria-controls="lyrics-sheet" disabled>Lyrics</button></div>
+            <label class="sr-only" for="seek">Playback position</label><input id="seek" class="seek" type="range" min="0" max="100" step="0.1" value="0" disabled>
+            <div class="time-labels"><span id="position">0:00</span><span id="duration">—:—</span></div>
+            <div class="music-controls"><button id="previous" aria-label="Previous track" title="Previous track"><svg class="icon"><use href="#previous-icon"/></svg></button><button id="play-pause" class="play" aria-label="Play" title="Play or pause"><svg class="icon"><use href="#play-icon"/></svg></button><button id="next" aria-label="Next track" title="Next track"><svg class="icon"><use href="#next-icon"/></svg></button><span class="device-pill"><svg class="icon"><use href="#terminal-icon"/></svg>This PC</span></div>
+            <div id="lyrics-sheet" class="lyrics-sheet" hidden><div id="lyrics-lines"></div><div id="lyrics-empty"><span id="lyrics-status">Play a song for lyrics.</span><button id="lyrics-retry" class="text-button">Retry</button></div></div>
+          </article>
+          <p id="media-note" class="page-note">Play from your favourite music app.</p>
+        </section>
+        <section class="page performance-page" id="page-1" aria-label="System monitor" hidden>
+          <div class="reference-hero performance-hero">
+            <div><h1>Hardware Monitor</h1></div>
+            <button id="system-refresh" class="icon-button" title="Refresh system metrics" aria-label="Refresh system metrics"><svg class="icon"><use href="#refresh-icon"/></svg></button>
+          </div>
+          <div class="performance-grid">
+            <article class="performance-card cpu-card"><div class="card-heading"><span class="metric-icon"><svg class="icon"><use href="#cpu-icon"/></svg></span><span class="eyebrow">CPU</span></div><strong id="cpu">—</strong><div class="metric-track"><span id="cpu-meter"></span></div></article>
+            <article class="performance-card net-up-card"><div class="card-heading"><span class="metric-icon"><svg class="icon"><use href="#up-icon"/></svg></span><span class="eyebrow">NET UP</span></div><strong id="net-up">—</strong><div class="metric-track"><span id="net-up-meter"></span></div></article>
+            <article class="performance-card memory-card"><div class="card-heading"><span class="metric-icon"><svg class="icon"><use href="#terminal-icon"/></svg></span><span class="eyebrow">RAM</span></div><strong id="ram">—</strong><div class="metric-track"><span id="ram-meter"></span></div></article>
+            <article class="performance-card net-down-card"><div class="card-heading"><span class="metric-icon"><svg class="icon"><use href="#down-icon"/></svg></span><span class="eyebrow">NET DOWN</span></div><strong id="net-down">—</strong><div class="metric-track"><span id="net-down-meter"></span></div></article>
+            <article class="performance-card gpu-card"><div class="card-heading"><span class="metric-icon"><svg class="icon"><use href="#gpu-icon"/></svg></span><span class="eyebrow">GPU</span></div><strong id="gpu">—</strong><div class="metric-track"><span id="gpu-meter"></span></div></article>
+            <article class="performance-card disk-card"><div class="card-heading"><span class="metric-icon"><svg class="icon"><use href="#disk-icon"/></svg></span><span class="eyebrow">DISK</span></div><strong id="disk">—</strong><div class="metric-track"><span id="disk-meter"></span></div></article>
+          </div>
+        </section>
+        <section class="page calendar-page" id="page-2" aria-label="Calendar" hidden>
+          <div class="reference-hero calendar-hero"><div><span id="calendar-weekday" class="eyebrow"></span><strong id="calendar-date">14</strong><h1 id="clock">—:—</h1><p id="date-label"></p></div><button id="today" class="text-button">Today</button></div>
+          <div class="reference-panel calendar-panel"><div class="month-heading"><button id="month-previous" class="icon-button" aria-label="Previous month">‹</button><strong id="month-label"></strong><button id="month-next" class="icon-button" aria-label="Next month">›</button></div><div class="weekdays" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div><div id="calendar-days" class="calendar-days" aria-label="Days of the month"></div></div>
+        </section>
+        <section class="page" id="page-3" aria-label="Quick settings" hidden>
+          <div id="quick-home">
+             <div class="centre-topline"><div><span class="eyebrow">CONTROL CENTRE</span><strong>System settings</strong></div><button id="voice-centre" class="pill-button"><svg class="icon"><use href="#mic-icon"/></svg><span>Voice</span></button></div>
+            <div class="quick-layout">
+              <div class="connectivity">
+                <div class="connect-tile" id="wifi-tile"><button id="wifi-toggle" class="tile-main" aria-pressed="false"><span class="tile-icon"><svg class="icon"><use href="#wifi-icon"/></svg></span><span><strong>Wi-Fi</strong><small id="wifi-status">Checking…</small></span></button><button id="wifi-picker" class="tile-arrow" aria-label="Available Wi-Fi networks"><svg class="icon"><use href="#chevron-icon"/></svg></button></div>
+                <div class="connect-tile" id="bluetooth-tile"><button id="bluetooth-toggle" class="tile-main" aria-pressed="false"><span class="tile-icon"><svg class="icon"><use href="#bluetooth-icon"/></svg></span><span><strong>Bluetooth</strong><small id="bluetooth-status">Checking…</small></span></button><button id="bluetooth-picker" class="tile-arrow" aria-label="Bluetooth devices"><svg class="icon"><use href="#chevron-icon"/></svg></button></div>
+                <button id="hotspot" class="tile-main solo-tile"><span class="tile-icon"><svg class="icon"><use href="#hotspot-icon"/></svg></span><span><strong>Hotspot</strong><small id="hotspot-status">Checking…</small></span></button>
+                <button class="tile-main solo-tile" data-settings="airplane"><span class="tile-icon"><svg class="icon"><use href="#airplane-icon"/></svg></span><span><strong>Airplane</strong><small>Open settings</small></span></button>
+              </div>
+            </div>
+            <div class="slider-stack"><label class="slider-card"><svg class="icon"><use href="#sun-icon"/></svg><span><strong>Display</strong><input type="range" id="brightness" min="0" max="100" value="0"><output id="brightness-value" for="brightness">—</output></span></label><label class="slider-card"><svg class="icon"><use href="#volume-icon"/></svg><span><strong>Sound</strong><input type="range" id="volume" min="0" max="100" value="0"><output id="volume-value" for="volume">—</output></span></label></div>
+            <div class="shortcut-section"><div class="section-label"><span>APP SHORTCUTS</span><button data-settings="display" class="text-button">Edit</button></div><div class="shortcut-row"><button class="shortcut" data-shortcut="files"><span class="shortcut-icon"><svg class="icon"><use href="#files-icon"/></svg></span><small>Files</small></button><button class="shortcut" data-shortcut="calculator"><span class="shortcut-icon"><svg class="icon"><use href="#calculator-icon"/></svg></span><small>Calculator</small></button><button class="shortcut" data-shortcut="notes"><span class="shortcut-icon"><svg class="icon"><use href="#note-icon"/></svg></span><small>Notes</small></button><button class="shortcut" data-shortcut="settings"><span class="shortcut-icon"><svg class="icon"><use href="#settings-icon"/></svg></span><small>Settings</small></button></div></div>
+          </div>
+          <div id="wifi-panel" class="picker" hidden>
+            <div class="subheader"><button class="icon-button picker-back" aria-label="Back to quick settings">‹</button><strong>Wi-Fi networks</strong><button id="wifi-refresh" class="text-button">Refresh</button></div>
+            <p id="wifi-detail" class="status-line" role="status"></p><div id="wifi-list" class="scroll-list" aria-label="Available Wi-Fi networks"></div>
+            <div id="wifi-join" class="join-row" hidden><label class="sr-only" for="wifi-password">Wi-Fi password</label><input id="wifi-password" type="password" maxlength="63" autocomplete="off" placeholder="Password · blank for saved network"><button id="wifi-connect" class="primary-button">Join</button></div>
+            <button class="text-button settings-link" data-settings="wifi">Windows Wi-Fi Settings ↗</button>
+          </div>
+          <div id="bluetooth-panel" class="picker" hidden>
+            <div class="subheader"><button class="icon-button picker-back" aria-label="Back to quick settings">‹</button><strong>Bluetooth devices</strong><button id="bluetooth-refresh" class="text-button">Refresh</button></div>
+            <p id="bluetooth-detail" class="status-line" role="status"></p><div id="bluetooth-list" class="scroll-list" aria-label="Available Bluetooth devices"></div>
+            <button class="text-button settings-link" data-settings="bluetooth">Pair / manage in Windows Settings ↗</button>
+          </div>
+        </section>
+        <section class="page notifications-page" id="page-4" aria-label="Notifications" hidden>
+          <div class="reference-hero compact-hero"><div><h1>Notifications</h1><p id="notification-status"></p></div><span class="hero-orb"><svg class="icon"><use href="#spark-icon"/></svg></span></div>
+          <div class="reference-panel list-panel"><div class="subheader"><strong>Your notifications</strong><button id="notifications-enable" class="text-button">Enable access</button><button id="notifications-clear" class="text-button">Clear shown</button></div><div id="notification-list" class="scroll-list" aria-live="polite"></div></div>
+        </section>
+        <section class="page devices-page" id="page-5" aria-label="Connected devices" hidden>
+          <div class="reference-hero compact-hero"><div><h1>Connected Devices</h1><p id="device-status"></p></div><button id="devices-refresh" class="icon-button" title="Refresh devices" aria-label="Refresh devices"><svg class="icon"><use href="#refresh-icon"/></svg></button></div>
+          <div class="reference-panel list-panel"><div id="device-list" class="scroll-list"></div></div>
+        </section>
+        <section class="page agent-page" id="page-6" aria-label="AI agent" hidden>
+          <div class="agent-toolbar"><strong id="ai-provider">AI activity</strong><span id="ai-status">Discovering</span><button id="ai-refresh" class="icon-button" title="Refresh activity" aria-label="Refresh AI activity"><svg class="icon"><use href="#refresh-icon"/></svg></button></div>
+          <article class="activity-card"><div class="activity-meta"><i id="ai-running-dot"></i><span id="ai-model"></span></div><p id="ai-task">No recent activity</p><span id="ai-tool"></span><div id="ai-permissions" class="permission-chips"></div><p id="ai-detail"></p><button id="ai-open" class="text-button">Open app ↗</button></article>
+          <div id="ai-sessions" class="ai-sessions"></div>
+          <div class="agent-actions"><div id="ai-processes" class="agent-processes"></div><button id="voice-agent" class="text-button" aria-label="Toggle voice commands"><svg class="icon"><use href="#mic-icon"/></svg><span>Voice</span></button><span id="voice-agent-status" hidden></span></div>
+        </section>
+        <section class="page focus-page" id="page-7" aria-label="Focus timer" hidden>
+          <div class="focus-dial"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="focus-track" cx="60" cy="60" r="54"/><circle id="focus-ring" cx="60" cy="60" r="54"/></svg><div><strong id="focus-time">25:00</strong><span id="focus-status">Focus</span></div></div>
+          <div id="focus-presets" class="focus-presets"><button data-focus="5">5 min</button><button data-focus="25" class="selected">25 min</button><button data-focus="50">50 min</button></div>
+          <div class="focus-actions"><button id="focus-toggle" class="primary-button">Start focus</button><button id="focus-reset" class="text-button" hidden>Reset</button></div>
+        </section>
+      </div>
+      <footer><span id="connection-label" hidden></span><nav id="navigation" aria-label="Island pages, scroll vertically"></nav><span id="page-number" hidden></span></footer>
+    </div>
+    <div id="clipboard-preview" class="clipboard-preview" role="status" hidden><span class="clipboard-icon"><svg class="icon"><use href="#clipboard-icon"/></svg></span><div><span class="eyebrow">COPIED TO CLIPBOARD</span><strong id="clipboard-text"></strong><small id="clipboard-meta"></small></div><button id="clipboard-dismiss" class="icon-button" aria-label="Dismiss clipboard preview">×</button></div>
+    <div id="toast" class="toast" role="status" hidden><span id="toast-message"></span><button id="toast-dismiss" aria-label="Dismiss message">×</button></div>
+  </main>
+</body>
+</html>
